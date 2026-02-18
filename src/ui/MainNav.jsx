@@ -1,4 +1,12 @@
 import styled from "styled-components";
+import { NavLink } from "react-router";
+import {
+  CalendarDaysIcon,
+  Cog6ToothIcon,
+  HomeIcon,
+  HomeModernIcon,
+  UsersIcon,
+} from "@heroicons/react/24/outline";
 
 const NavList = styled.ul`
   display: flex;
@@ -6,7 +14,7 @@ const NavList = styled.ul`
   gap: 0.8rem;
 `;
 
-const Link = styled.a`
+const StyledLink = styled(NavLink)`
   &:link,
   &:visited {
     display: flex;
@@ -44,3 +52,42 @@ const Link = styled.a`
     color: var(--color-brand-600);
   }
 `;
+
+export default function MainNav() {
+  return (
+    <nav>
+      <NavList>
+        <li>
+          <StyledLink to="/dashboard">
+            <HomeIcon />
+            Home
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/bookings">
+            <CalendarDaysIcon />
+            Bookings
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/cabins">
+            <HomeModernIcon />
+            Cabins
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/users">
+            <UsersIcon />
+            Users
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/settings">
+            <Cog6ToothIcon />
+            Settings
+          </StyledLink>
+        </li>
+      </NavList>
+    </nav>
+  );
+}
