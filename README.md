@@ -39,4 +39,12 @@
 | Notifications           | React hot toast   |
 | Data charts             | Recharts          |
 | Date manipulation       | date-fns          |
-| Icons                   | React icons       |
+| Icons                   | Heroicons         |
+
+## Data tables
+
+1. Bookings (Bookings, Dashboard, Check in/out features)
+2. Cabins (Cabin feature)
+3. Guests (Guests feature)
+4. Settings (App settings feature)
+5. Users (Authentication feature)
