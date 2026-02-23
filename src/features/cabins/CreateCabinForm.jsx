@@ -31,7 +31,7 @@ function CreateCabinForm() {
   } = useForm();
 
   function onSubmit(data) {
-    mutate(data);
+    mutate({ ...data, image: data.image[0] });
   }
 
   function onError(errors) {
@@ -102,7 +102,6 @@ function CreateCabinForm() {
         <FileInput
           id="image"
           accept="image/*"
-          type="file"
           {...register("image", {
             required: "This field is required",
           })}
