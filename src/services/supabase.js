@@ -6,4 +6,5 @@ console.log(import.meta.env);
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
+export { supabaseUrl };
 export default supabase;
