@@ -4,6 +4,7 @@ import Button from "../../ui/Button";
 import { useState } from "react";
 import CreateCabinForm from "./CreateCabinForm";
 import useDeleteCabin from "./useDeleteCabin";
+import useCreateCabin from "./useCreateCabin";
 
 const TableRow = styled.div`
   display: grid;
@@ -52,7 +53,20 @@ export default function CabinRow({ cabin }) {
   }
 
   const { deleteCabin, isDeleting } = useDeleteCabin();
-  const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
+  const { createCabin, isCreating } = useCreateCabin();
+  const { id, name, maxCapacity, regularPrice, discount, image, description } =
+    cabin;
+
+  function handleDuplicate() {
+    createCabin({
+      name: `Copy of ${name}`,
+      maxCapacity,
+      regularPrice,
+      discount,
+      image,
+      description,
+    });
+  }
 
   return (
     <>
@@ -63,6 +77,9 @@ export default function CabinRow({ cabin }) {
         <Price>{formatCurrency(regularPrice)}</Price>
         <Discount>{discount ? formatCurrency(discount) : "—"}</Discount>
         <div>
+          <Button disabled={isCreating} onClick={handleDuplicate}>
+            Duplicate
+          </Button>
           <Button onClick={toggleForm}>Edit</Button>
           <Button onClick={() => deleteCabin(id)} disabled={isDeleting}>
             Delete
