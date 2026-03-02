@@ -34,10 +34,23 @@ function CreateCabinForm({ cabinToEdit, onCloseForm }) {
     if (isEditSession)
       editCabin(
         { newCabinData: { ...data, image }, id: editId },
-        { onSuccess: reset },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseForm?.();
+          },
+        },
       );
-    else createCabin({ ...data, image: data.image[0] }, { onSuccess: reset });
-    onCloseForm();
+    else
+      createCabin(
+        { ...data, image: data.image[0] },
+        {
+          onSuccess: () => {
+            reset();
+            onCloseForm?.();
+          },
+        },
+      );
   }
 
   function onError(errors) {
@@ -45,7 +58,10 @@ function CreateCabinForm({ cabinToEdit, onCloseForm }) {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <Form
+      onSubmit={handleSubmit(onSubmit, onError)}
+      type={onCloseForm ? "modal" : "regular"}
+    >
       <FormRow label="Cabin name" error={errors.name?.message}>
         <Input
           type="text"
@@ -124,7 +140,7 @@ function CreateCabinForm({ cabinToEdit, onCloseForm }) {
         <Button
           variation="secondary"
           type="reset"
-          onClick={onCloseForm}
+          onClick={() => onCloseForm?.()}
           disabled={isWorking}
         >
           Cancel
