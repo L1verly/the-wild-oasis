@@ -3,6 +3,8 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { createPortal } from "react-dom";
 import { cloneElement, createContext, useContext, useState } from "react";
 
+import useOutsideClick from "../hooks/useOutsideClick.js";
+
 const StyledModal = styled.div`
   position: fixed;
   top: 50%;
@@ -73,11 +75,13 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
+  const ref = useOutsideClick(close);
+
   if (name !== openName) return null;
 
   return createPortal(
     <Overlay>
-      <StyledModal>
+      <StyledModal ref={ref}>
         <Button onClick={close}>
           <XMarkIcon />
         </Button>
