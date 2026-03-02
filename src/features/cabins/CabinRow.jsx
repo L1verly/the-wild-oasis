@@ -83,18 +83,18 @@ export default function CabinRow({ cabin }) {
             Duplicate
           </Button>
           <Modal>
-            <Modal.Open opens={"edit"}>
+            <Modal.Open opens="edit">
               <Button>Edit</Button>
             </Modal.Open>
-            <Modal.Window name={"edit"}>
+            <Modal.Window name="edit">
               <CreateCabinForm cabinToEdit={cabin} />
             </Modal.Window>
           </Modal>
           <Modal>
-            <Modal.Open>
+            <Modal.Open opens="delete">
               <Button>Delete</Button>
             </Modal.Open>
-            <Modal.Window>
+            <Modal.Window name="delete">
               <ConfirmDelete
                 resourceName="cabins"
                 disabled={isDeleting}
