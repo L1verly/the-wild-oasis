@@ -1,6 +1,5 @@
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { createContext, useContext, useState } from "react";
-import { createPortal } from "react-dom";
 import styled from "styled-components";
 import useOutsideClick from "../hooks/useOutsideClick";
 
