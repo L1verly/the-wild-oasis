@@ -50,6 +50,7 @@ export default function Filter({ filterField, options }) {
           key={option.value}
           onClick={() => handleClick(option.value)}
           active={currentFilter === option.value ? true : undefined}
+          disabled={option.value === currentFilter}
         >
           {option.label}
         </FilterButton>
