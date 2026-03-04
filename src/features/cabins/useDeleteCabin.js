@@ -10,7 +10,7 @@ export default function useDeleteCabin() {
     onSuccess: () => {
       toast.success("Cabin deleted successfully");
       // Invalidate the cabins query to refetch the updated list of cabins
-      queryClient.invalidateQueries({ queryKey: ["cabin"] });
+      queryClient.invalidateQueries({ queryKey: ["cabins"] });
     },
     onError: (error) => toast.error(error.message),
   });
