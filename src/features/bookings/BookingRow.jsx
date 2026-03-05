@@ -7,7 +7,7 @@ import Table from "../../ui/Table";
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import Menus from "../../ui/Menus";
-import { EyeIcon } from "@heroicons/react/24/outline";
+import { ArrowDownOnSquareIcon, EyeIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router";
 
 const Cabin = styled.div`
@@ -94,6 +94,15 @@ function BookingRow({
           >
             See details
           </Menus.Button>
+
+          {status === "unconfirmed" && (
+            <Menus.Button
+              icon={<ArrowDownOnSquareIcon />}
+              onClick={() => navigate(`/checkin/${bookingId}`)}
+            >
+              Check in
+            </Menus.Button>
+          )}
         </Menus.List>
       </Menus.Menu>
     </Table.Row>

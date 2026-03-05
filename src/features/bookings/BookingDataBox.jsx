@@ -163,7 +163,7 @@ function BookingDataBox({ booking }) {
           {hasBreakfast ? "Yes" : "No"}
         </DataItem>
 
-        <Price isPaid={isPaid}>
+        <Price $isPaid={isPaid}>
           <DataItem icon={<CurrencyDollarIcon />} label={`Total price`}>
             {formatCurrency(totalPrice)}
 
