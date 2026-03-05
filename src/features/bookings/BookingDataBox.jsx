@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { format, isToday } from "date-fns";
 import {
-  HiOutlineChatBubbleBottomCenterText,
-  HiOutlineCheckCircle,
-  HiOutlineCurrencyDollar,
-  HiOutlineHomeModern,
-} from "react-icons/hi2";
+  ChatBubbleBottomCenterTextIcon,
+  CheckCircleIcon,
+  CurrencyDollarIcon,
+  HomeModernIcon,
+} from "@heroicons/react/24/outline";
 
 import DataItem from "../../ui/DataItem";
 import { Flag } from "../../ui/Flag";
@@ -123,7 +123,7 @@ function BookingDataBox({ booking }) {
     <StyledBookingDataBox>
       <Header>
         <div>
-          <HiOutlineHomeModern />
+          <HomeModernIcon />
           <p>
             {numNights} nights in Cabin <span>{cabinName}</span>
           </p>
@@ -131,9 +131,9 @@ function BookingDataBox({ booking }) {
 
         <p>
           {format(new Date(startDate), "EEE, MMM dd yyyy")} (
-          {isToday(new Date(startDate))
-            ? "Today"
-            : formatDistanceFromNow(startDate)}
+          {isToday(new Date(startDate)) ?
+            "Today"
+          : formatDistanceFromNow(startDate)}
           ) &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
         </p>
       </Header>
@@ -152,24 +152,24 @@ function BookingDataBox({ booking }) {
 
         {observations && (
           <DataItem
-            icon={<HiOutlineChatBubbleBottomCenterText />}
+            icon={<ChatBubbleBottomCenterTextIcon />}
             label="Observations"
           >
             {observations}
           </DataItem>
         )}
 
-        <DataItem icon={<HiOutlineCheckCircle />} label="Breakfast included?">
+        <DataItem icon={<CheckCircleIcon />} label="Breakfast included?">
           {hasBreakfast ? "Yes" : "No"}
         </DataItem>
 
         <Price isPaid={isPaid}>
-          <DataItem icon={<HiOutlineCurrencyDollar />} label={`Total price`}>
+          <DataItem icon={<CurrencyDollarIcon />} label={`Total price`}>
             {formatCurrency(totalPrice)}
 
             {hasBreakfast &&
               ` (${formatCurrency(cabinPrice)} cabin + ${formatCurrency(
-                extrasPrice
+                extrasPrice,
               )} breakfast)`}
           </DataItem>
 
