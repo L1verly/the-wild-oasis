@@ -35,9 +35,13 @@ const FilterButton = styled.button`
   }
 `;
 
-export default function Filter({ filterField, options }) {
+export default function Filter({ filterField, options, paramsToDelete }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentFilter = searchParams.get(filterField) || options[0].value;
+
+  if (paramsToDelete)
+    paramsToDelete.forEach((param) => searchParams.delete(param));
+
   function handleClick(filter) {
     searchParams.set(filterField, filter);
     setSearchParams(searchParams);
