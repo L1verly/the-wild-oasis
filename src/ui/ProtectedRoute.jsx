@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import useUser from "../features/authentication/useUser";
 import { useNavigate } from "react-router";
-import Spinner from "./Spinner";
+import { FullPageSpinner } from "./Spinner";
 import { useEffect } from "react";
 
 const FullPage = styled.div`
@@ -20,16 +20,14 @@ export default function ProtectedRoute({ children }) {
 
   // 2. If no authenticated user redirect to /login
   useEffect(() => {
-    if (!isPending && !isAuthenticated && !isFetching) navigate("/login");
+    if (!isPending && !isFetching && !isAuthenticated) {
+      navigate("/login");
+      console.log("FIRED!");
+    }
   }, [isPending, isAuthenticated, isFetching, navigate]);
 
   // 3. Show Spinner during loading
-  if (isPending)
-    return (
-      <FullPage>
-        <Spinner />
-      </FullPage>
-    );
+  if (isPending) return <FullPageSpinner />;
 
   // 4. If there is a user, render the app
   if (isAuthenticated) return children;

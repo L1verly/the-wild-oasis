@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const rotate = keyframes`
   to {
@@ -6,18 +6,46 @@ const rotate = keyframes`
   }
 `;
 
-const Spinner = styled.div`
-  margin: 4.8rem auto;
+const sizes = {
+  small: css`
+    width: 2.4rem;
+    padding: 0.4rem;
+  `,
+  regular: css`
+    padding: 1rem;
+    width: 6.2rem;
+    margin: 4.8rem auto;
+  `,
+};
 
-  width: 6.4rem;
+const Spinner = styled.div.attrs((props) => ({
+  size: props.size || "regular",
+}))`
+  ${(props) => sizes[props.size]}
+
   aspect-ratio: 1;
   border-radius: 50%;
-  background:
-    radial-gradient(farthest-side, var(--color-brand-600) 94%, #0000) top/10px
-      10px no-repeat,
-    conic-gradient(#0000 30%, var(--color-brand-600));
-  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 10px), #000 0);
-  animation: ${rotate} 1.5s infinite linear;
+  background: var(--color-brand-600);
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: ${rotate} 1s infinite linear;
 `;
+
+const FullPage = styled.div`
+  height: 100vh;
+  background-color: var(--color-grey-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const FullPageSpinner = () => (
+  <FullPage>
+    <Spinner />
+  </FullPage>
+);
 
 export default Spinner;
