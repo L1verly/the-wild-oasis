@@ -13,7 +13,6 @@ function BookingTableOperations() {
           { value: "checked-in", label: "Checked in" },
           { value: "unconfirmed", label: "Unconfirmed" },
         ]}
-        paramsToDelete={["page"]}
       />
 
       <SortBy
