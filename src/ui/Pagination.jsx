@@ -89,7 +89,7 @@ export default function Pagination({ count }) {
   return (
     <StyledPagination>
       <StyledP>
-        Showing <span>{start}</span> to <span>{end}</span> of
+        Showing <span>{start}</span> to <span>{end}</span> of{" "}
         <span>{count}</span> results
       </StyledP>
 
