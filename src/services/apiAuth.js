@@ -9,10 +9,10 @@ import supabase from "./supabase";
 //   return data;
 // }
 
-// async function logout({ email, password }) {
-//   let { error } = await supabase.auth.signOut();
-//   if (error) throw new Error(error.message);
-// }
+async function logout() {
+  let { error } = await supabase.auth.signOut();
+  if (error) throw new Error(error.message);
+}
 
 async function login({ email, password }) {
   let { data, error } = await supabase.auth.signInWithPassword({
@@ -36,4 +36,4 @@ async function getCurrentUser() {
   return user?.user;
 }
 
-export { login, getCurrentUser };
+export { login, logout, getCurrentUser };
