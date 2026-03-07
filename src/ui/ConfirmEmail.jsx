@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import Heading from "./Heading";
 import { useResendConfirmEmail } from "../features/authentication/useResendConfirmEmail";
-import useUser from "../features/authentication/useUser";
+import { useUser } from "../features/authentication/useUser";
 import { useNavigate } from "react-router";
 
 const StyledConfirmEmail = styled.div`

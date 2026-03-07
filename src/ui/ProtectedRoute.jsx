@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import useUser from "../features/authentication/useUser";
+import { useUser } from "../features/authentication/useUser";
 import { useNavigate } from "react-router";
 import { FullPageSpinner } from "./Spinner";
 import { useEffect } from "react";
@@ -22,7 +22,6 @@ export default function ProtectedRoute({ children }) {
   useEffect(() => {
     if (!isPending && !isFetching && !isAuthenticated) {
       navigate("/login");
-      console.log("FIRED!");
     }
   }, [isPending, isAuthenticated, isFetching, navigate]);
 
