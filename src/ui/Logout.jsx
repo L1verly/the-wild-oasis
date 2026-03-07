@@ -6,7 +6,7 @@ import Spinner from "./Spinner";
 export default function Logout() {
   const { logout, isLoggingOut } = useLogout();
   return (
-    <ButtonIcon onClick={logout} disabled={isLoggingOut}>
+    <ButtonIcon onClick={logout} disabled={isLoggingOut} title="Log out">
       {!isLoggingOut ?
         <ArrowRightEndOnRectangleIcon />
       : <Spinner size="small" />}
