@@ -48,7 +48,7 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical>
-        <Button size="large" disabled={isLoggingIn}>
+        <Button type="submit" size="large" disabled={isLoggingIn}>
           {!isLoggingIn ? "Log in" : "Logging in"}
         </Button>
       </FormRowVertical>
