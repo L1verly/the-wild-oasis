@@ -53,6 +53,7 @@ function UpdateUserDataForm() {
           onChange={(e) => setFullName(e.target.value)}
           id="fullName"
           disabled={isUpdating}
+          required
         />
       </FormRow>
       <FormRow label="Avatar image">
@@ -72,9 +73,11 @@ function UpdateUserDataForm() {
           }
           onClick={handleCancel}
         >
-          Cancel
+          Reset
         </Button>
-        <Button disabled={isUpdating}>Update account</Button>
+        <Button disabled={isUpdating}>
+          {!isUpdating ? "Update account" : "Updating..."}
+        </Button>
       </FormRow>
     </Form>
   );
