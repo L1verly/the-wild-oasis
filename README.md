@@ -1,4 +1,6 @@
-# About this project
+# The Wild Oasis
+
+## About this project
 
 - "The Wild Oasis" - small boutique hotel with 8 wooden cabins
 - Application manages hotel's bookings, cabins and guests
