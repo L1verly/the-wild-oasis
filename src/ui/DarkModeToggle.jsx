@@ -2,10 +2,10 @@ import { useDarkMode } from "../context/useDarkMode";
 import ButtonIcon from "./ButtonIcon";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 
-export default function DarkModeToggle() {
+export default function DarkModeToggle({ size }) {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   return (
-    <ButtonIcon onClick={toggleDarkMode}>
+    <ButtonIcon size={size} onClick={toggleDarkMode}>
       {isDarkMode ?
         <SunIcon />
       : <MoonIcon />}
