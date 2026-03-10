@@ -14,9 +14,9 @@ import Spinner from "../../ui/Spinner";
 import { useNavigate } from "react-router";
 import { useCheckOut } from "../check-in-out/useCheckOut";
 import useDeleteBooking from "./useDeleteBooking";
-import { TrashIcon } from "@heroicons/react/24/outline";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Modal from "../../ui/Modal";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -32,6 +32,8 @@ function BookingDetail() {
   const moveBack = useMoveBack();
 
   if (isPending) return <Spinner />;
+
+  if (!booking) return <Empty resourceName="booking" />;
 
   const { status, id: bookingId } = booking;
 
