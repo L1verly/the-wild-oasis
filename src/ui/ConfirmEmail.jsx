@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Button from "./Button";
 import Heading from "./Heading";
 import { useResendConfirmEmail } from "../features/authentication/useResendConfirmEmail";
-import { useUser } from "../features/authentication/useUser";
-import { useNavigate } from "react-router";
+// import { useUser } from "../features/authentication/useUser";
+// import { useNavigate } from "react-router";
 
 const StyledConfirmEmail = styled.div`
   width: 40rem;
@@ -24,9 +24,9 @@ const StyledConfirmEmail = styled.div`
 `;
 
 export default function ConfirmEmail() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { resendConfirmEmail, isResending } = useResendConfirmEmail();
-  const { isAuthenticated, isFetching, isPending } = useUser();
+  // const { isAuthenticated, isFetching, isPending } = useUser();
   //   useEffect(() => {
   //     if (!isFetching && !isPending && isAuthenticated) navigate("/dashboard");
   //   }, [isFetching, isPending, isAuthenticated, navigate]);

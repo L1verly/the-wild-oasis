@@ -19,7 +19,6 @@ export default function DashboardLayout() {
   const { isPending: isLoadingBookings, bookings } = useRecentBookings();
   const {
     isPending: isLoadingStays,
-    stays,
     confirmedStays,
     numDays,
   } = useRecentStays();
