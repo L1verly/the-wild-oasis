@@ -35,6 +35,7 @@ function LoginForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={isLoggingIn}
+          placeholder="Use: admin@admin.com"
         />
       </FormRowVertical>
       <FormRowVertical label="Password">
@@ -45,6 +46,7 @@ function LoginForm() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           disabled={isLoggingIn}
+          placeholder="Use: admin"
         />
       </FormRowVertical>
       <FormRowVertical>
